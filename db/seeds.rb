@@ -20,6 +20,8 @@ ny = Location.create(state: "NY", tests: 200, postive: 180, negative: 20, hospit
 
 one = Favorite.create(user_id: amy.id , location_id: nj.id)
 two = Favorite.create(user_id: travy.id, location_id: ny.id)
+three = Favorite.create(user_id: amy.id , location_id: ny.id)
+four = Favorite.create(user_id: travy.id, location_id: nj.id)
 
 
 

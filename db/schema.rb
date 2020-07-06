@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_07_06_153949) do
     t.integer "on_ventilator_currently"
     t.integer "recovered"
     t.integer "death"
-    t.datetime "last_update_et"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

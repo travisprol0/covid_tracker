@@ -10,7 +10,7 @@ class CreateLocations < ActiveRecord::Migration[6.0]
       t.integer :on_ventilator_currently 
       t.integer :recovered 
       t.integer :death
-      t.datetime :last_update_et 
+      # t.datetime :last_update_et 
 
       t.timestamps
     end

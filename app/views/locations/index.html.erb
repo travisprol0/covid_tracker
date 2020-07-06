@@ -1,0 +1,7 @@
+<h1> States Index Page </h1>
+
+<% @locations.each do |location| %>
+<ul>
+<li><%= link_to location.state, location_path(location.id) %></li>
+</ul>
+<% end %>

@@ -1,0 +1,28 @@
+<h1><%= @location.state %></h1>
+
+<ul>
+<li>Number of Tests Administered: <%= @location.tests %></li>
+<li>Positive: <%= @location.postive %></li>
+<li>Negative tested:<%= @location.negative%></li>
+<li>Currently Hospitalized:<%= @location.hospitalized_currently%></li>
+<li>Currently in ICU: <%= @location.in_icu_currently%></li>
+<li>Currently on ventilators: <%= @location.on_ventilator_currently%></li>
+<li>Patients Recovered: <%= @location.recovered%></li>
+<li>Lives Lost: <%= @location.death%></li>
+</ul><br>
+
+<%= link_to "return to states index", locations_path%>
+
+
+
+  <%# t.string "state"
+    t.integer "tests"
+    t.integer "postive"
+    t.integer "negative"
+    t.integer "hospitalized_currently"
+    t.integer "in_icu_currently"
+    t.integer "on_ventilator_currently"
+    t.integer "recovered"
+    t.integer "death"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false %>

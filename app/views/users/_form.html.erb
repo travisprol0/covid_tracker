@@ -1,1 +1,26 @@
-<div class = 'error'></div>
+<div class = 'error'>
+
+    <% if flash[:my_errors]%>
+        <% flash[:my_errors].each do |error|%>
+            <p><%= error %></p>
+        <%end%>
+    <%end%>
+
+</div>
+
+
+    <%= form_for @user do |u| %> 
+    <%= u.label :username %>
+    <%= u.text_field :username%><br>
+
+    <%= u.label :first_name %>
+    <%= u.text_field :first_name %><br>
+
+    <%= u.label :last_name %>
+    <%= u.text_field :last_name %><br>
+    
+    <%= u.submit "create user"%>
+
+    <% end %>
+
+

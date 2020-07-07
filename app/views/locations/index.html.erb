@@ -1,9 +1,12 @@
 <h1> States Index Page </h1>
 
-# <% @locations.each do |location| %>
-# <ul>
-# <li><%= link_to location.state, location_path(location.id) %></li>
-# </ul>
-# <% end %>
-<%= states_current %>
-<% byebug %>
+
+<% @currentstates = @arrayOfCurrentStates.map{|state| state["state"]} %>
+
+<% @currentstates.each do |state| %>
+    <ul>
+        <li>
+            <%= link_to state, location_path(state) %>
+        </li>
+    </ul>
+<% end %>

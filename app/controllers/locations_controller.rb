@@ -1,7 +1,8 @@
 class LocationsController < ApplicationController
     def index 
         # @locations = Location.all
-        location = states_current[:state]
+        # location = states_current[:state]
+        states_current
         @arrayOfCurrentStates
     end 
 
@@ -33,8 +34,6 @@ class LocationsController < ApplicationController
         jsonButItsAString = restClientResponseObject.body
         workable_hash = JSON.parse(jsonButItsAString)   
         @arrayOfCurrentStates = workable_hash
-        byebug
-
     end
 
     def us_daily

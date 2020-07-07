@@ -33,6 +33,7 @@ class LocationsController < ApplicationController
         jsonButItsAString = restClientResponseObject.body
         workable_hash = JSON.parse(jsonButItsAString)   
         @arrayOfCurrentStates = workable_hash
+        byebug
 
     end
 

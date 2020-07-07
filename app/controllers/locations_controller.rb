@@ -1,4 +1,7 @@
 class LocationsController < ApplicationController
+    def home 
+    end 
+    
     def index 
         # @locations = Location.all
         # location = states_current[:state]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_153949) do
+ActiveRecord::Schema.define(version: 2020_07_07_210012) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -21,16 +21,9 @@ ActiveRecord::Schema.define(version: 2020_07_06_153949) do
 
   create_table "locations", force: :cascade do |t|
     t.string "state"
-    t.integer "tests"
-    t.integer "postive"
-    t.integer "negative"
-    t.integer "hospitalized_currently"
-    t.integer "in_icu_currently"
-    t.integer "on_ventilator_currently"
-    t.integer "recovered"
-    t.integer "death"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "abbreviation"
   end
 
   create_table "users", force: :cascade do |t|

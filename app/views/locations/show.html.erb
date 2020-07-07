@@ -1,25 +1,15 @@
 <h1><%= @location.state %></h1>
 
-# <ul>
-# <li>Number of Tests Administered: <%= @location.tests %></li>
-# <li>Positive: <%= @location.postive %></li>
-# <li>Negative tested:<%= @location.negative%></li>
-# <li>Currently Hospitalized:<%= @location.hospitalized_currently%></li>
-# <li>Currently in ICU: <%= @location.in_icu_currently%></li>
-# <li>Currently on ventilators: <%= @location.on_ventilator_currently%></li>
-# <li>Patients Recovered: <%= @location.recovered%></li>
-# <li>Lives Lost: <%= @location.death%></li>
-# </ul><br>
-<h3>Today</h3>
-<% @currentstates = @arrayOfCurrentStates.map{|state| state["positive"]} %>
-<% @currentstates = @arrayOfCurrentStates.map{|state| state["negative"]} %>
 
-
-<h3>7 Day Average</h3>
+<h3>Today:</h3>
 
 
 
-<%= link_to "return to states index", locations_path%>
+<h3>7 Day Average:</h3>
+
+
+<br><br>
+<%= link_to "View All States", locations_path%>
 
 
 

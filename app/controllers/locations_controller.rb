@@ -1,9 +1,9 @@
 class LocationsController < ApplicationController
     def index 
-        # @locations = Location.all
+        @locations = Location.all
         # location = states_current[:state]
-        states_current
-        @arrayOfCurrentStates
+        # states_current
+        # @arrayOfCurrentStates
     end 
 
     def show 

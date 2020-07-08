@@ -16,36 +16,35 @@
 
 
 <h3>Today:</h3>
-    <% @todayState = @arrayOfUSDaily.find{|state| state["state"] == @location.abbreviation} %>
   
     <ul>
         <!-- date -->
-            <% @dateHash = @todayState.select{|stat| stat["date"]} %>
+            <% @dateHash = @arrayOfUSDaily.select{|stat| stat["date"]} %>
             <li> Date: <%= @dateHash["date"] %> </li>
         
             
         <!-- new cases -->
-            <% @newCasesHash = @todayState.select{|stat| stat["positiveIncrease"]} %>
+            <% @newCasesHash = @arrayOfUSDaily.select{|stat| stat["positiveIncrease"]} %>
             <li> New Cases: <%= @newCasesHash["positiveIncrease"] %> </li>
             
         <!-- currently hospitalized -->
-            <% @hospitalizedCurrentlyHash = @todayState.select{|stat| stat["hospitalizedCurrently"]} %>
+            <% @hospitalizedCurrentlyHash = @arrayOfUSDaily.select{|stat| stat["hospitalizedCurrently"]} %>
             <li> Currently Hospitalized: <%= @hospitalizedCurrentlyHash["hospitalizedCurrently"] %> </li>
         
         <!-- hospitization increase -->
-            <% @hospitalizedIncreaseHash = @todayState.select{|stat| stat["hospitalizedIncrease"]} %>
+            <% @hospitalizedIncreaseHash = @arrayOfUSDaily.select{|stat| stat["hospitalizedIncrease"]} %>
             <li> Hospitalization Increase: <%= @hospitalizedIncreaseHash["hospitalizedIncrease"] %> </li>
         
         <!-- currently in ICU -->
-            <% @inIcuCurrentlyHash = @todayState.select{|stat| stat["inIcuCurrently"]} %>
+            <% @inIcuCurrentlyHash = @arrayOfUSDaily.select{|stat| stat["inIcuCurrently"]} %>
             <li> Currently in ICU: <%= @inIcuCurrentlyHash["inIcuCurrently"] %> </li>
         
         <!-- currently on ventilator -->
-            <% @onVentilatorCurrentlyHash = @todayState.select{|stat| stat["onVentilatorCurrently"]} %>
+            <% @onVentilatorCurrentlyHash = @arrayOfUSDaily.select{|stat| stat["onVentilatorCurrently"]} %>
             <li> Currently on Ventilator: <%= @onVentilatorCurrentlyHash["onVentilatorCurrently"] %> </li>
         
         <!-- deaths increase -->
-            <% @deathIncreaseHash = @todayState.select{|stat| stat["deathIncrease"]} %>
+            <% @deathIncreaseHash = @arrayOfUSDaily.select{|stat| stat["deathIncrease"]} %>
             <li> Lives Lost: <%= @deathIncreaseHash["deathIncrease"] %> </li>
     </ul>
 

@@ -11,6 +11,9 @@ class LocationsController < ApplicationController
 
     def show 
         @location = Location.find(params[:id])
+        states_daily
+        states_current
+        @arrayOfCurrentStates
     end 
 
     private
@@ -29,9 +32,10 @@ class LocationsController < ApplicationController
         jsonButItsAString = restClientResponseObject.body
         workable_hash = JSON.parse(jsonButItsAString)   
         @arrayOfStatesDaily = workable_hash
+        
     end 
 
-    def states_current #arguemnt?
+    def states_current
         url = "https://covidtracking.com/api/states"
         restClientResponseObject = RestClient.get(url)
         jsonButItsAString = restClientResponseObject.body

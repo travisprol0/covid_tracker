@@ -71,9 +71,12 @@
             <% @sevenDayDeathArray = @sevenDays.map {|days| days["deathIncrease"]} %>
             <li> Lives Lost: <%= (@sevenDayDeathArray.sum)/7 %>/day </li>  
     </ul>
+
     <% @dateData = @arrayOfStatesDaily.select{|state| state["state"] == @location.abbreviation} %>
+    
 <h3>Totals Starting on <%= @dateData.last["date"]%>: </h3>
     <% @currentState = @arrayOfCurrentStates.find{|state| state["state"] == @location.abbreviation} %>
+    
     <ul>
    
         <!-- total cases -->
@@ -81,7 +84,7 @@
                 <li> Total Cases: <%= @CasesHash["positive"] %> </li>
         
         <!-- total hospitizations -->
-                <% @hospitalizedCumulativeHash = @currentState.select{|stat| stat["hospitalizedCumulative"]} %>
+                <% @hospitalizedCumulativeHash = @currentState.select{|state| state["hospitalizedCumulative"]} %>
                 <li> Total Hospitizations: <%= @hospitalizedCumulativeHash["hospitalizedCumulative"] %> </li>
         
         <!-- total ICU -->

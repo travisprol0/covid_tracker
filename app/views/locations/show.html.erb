@@ -76,7 +76,7 @@
     
 <h3>Totals Starting on <%= @dateData.last["date"]%>: </h3>
     <% @currentState = @arrayOfCurrentStates.find{|state| state["state"] == @location.abbreviation} %>
-    
+
     <ul>
    
         <!-- total cases -->
@@ -98,6 +98,7 @@
     </ul>
 
 <br>
+<%= link_to 'Back', url_for(:back) %> <br>
 <%= link_to "View All States", locations_path%>
 
 

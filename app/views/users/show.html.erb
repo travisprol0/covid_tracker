@@ -9,3 +9,5 @@
 <% end %>
 
 <%= link_to "Add Favorite", new_favorite_path%>
+<br><br>
+<%= button_to "Delete User", {:controller => :users, :action => 'destroy', :id => @user.id }, :method => :delete %> 

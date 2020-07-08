@@ -1,0 +1,10 @@
+<%= form_for @favorite do |f| %>
+
+    <%= f.label :user_id, "User:"%>
+    <%= f.collection_select :user_id, @users, :id, :username%>
+
+    <%= f.label :location_id, "Location:"%>
+    <%= f.collection_select :location_id, @locations, :id, :state%>
+
+    <%= f.submit%>
+<% end %>

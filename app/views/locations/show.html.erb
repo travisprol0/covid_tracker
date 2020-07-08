@@ -4,7 +4,14 @@
         <!-- COVID site -->
             <% @stateInfo = @arrayOfStatesInfo.find{|state| state["state"] == @location.abbreviation} %>
             <% @covidSite = @stateInfo["covid19Site"]%>
-            <a href="<%=@covidSite%>" target="_blank"><%=@location.state%> COVID Site</a>
+            <a href="<%= @covidSite%>" target="_blank"><%=@location.state%> COVID Site</a>
+
+    <br>
+        <!-- twitter -->
+            <% @twitter = @stateInfo["twitter"]%>
+            <% @twitter = @twitter[1..-1]%>
+            <a href="https://twitter.com/<%= @twitter %>" target="_blank"><%=@location.state%> COVID Twitter</a>
+            
 
 
 <h3>Today:</h3>

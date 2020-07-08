@@ -1,6 +1,5 @@
 class LocationsController < ApplicationController
     def home 
-        @location = Location.find(params[:id])
         us_daily
         us_current
     end 

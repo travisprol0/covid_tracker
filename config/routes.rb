@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: "locations#home"
-  
   resources :favorites
   resources :locations 
   resources :users

@@ -1,9 +1,11 @@
 <h1><%= @user.to_s %></h1>
-
+<h5>Favorites:</h5>
 <% @user.favorites.each do |favorite|%>
-    <ul>
+    <ul class="list">
         <li>
             <%= link_to favorite.location.state, location_path(favorite.location.id) %>
         </li>
     </ul>
 <% end %>
+
+<%= link_to "Add Favorite", new_favorite_path%>

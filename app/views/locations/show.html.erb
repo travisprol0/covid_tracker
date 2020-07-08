@@ -1,6 +1,12 @@
 <h1><%= @location.state %></h1>
 
 
+        <!-- COVID site -->
+            <% @stateInfo = @arrayOfStatesInfo.find{|state| state["state"] == @location.abbreviation} %>
+            <% @covidSite = @stateInfo["covid19Site"]%>
+            <p></p>
+
+
 <h3>Today:</h3>
     <% @todayState = @arrayOfStatesDaily.find{|state| state["state"] == @location.abbreviation} %>
   
@@ -36,8 +42,36 @@
     </ul>
 
 <h3>7 Day Average:</h3>
+    <% @staeDailyData = @arrayOfStatesDaily.select{|state| state["state"] == @location.abbreviation} %>
+    <% @sevenDays = @staeDailyData.take(7) %>
 
-
+    <ul>        
+            
+        <!-- new cases average -->
+            <% @positiveArray = @sevenDays.map {|days| days["positiveIncrease"]} %>
+            <li> New Cases: <%= (@positiveArray.sum)/7 %>/day </li>
+            
+        <!-- currently hospitalized average -->
+            <% @sevenDayHospitizationArray = @sevenDays.map {|days| days["hospitalizedCurrently"]} %>
+            <li> Currently Hospitalized: <%= (@sevenDayHospitizationArray.sum)/7 %>/day </li>
+        
+        <!-- hospitization increase average -->
+            <% @sevenDayHospitizationIncreaseArray = @sevenDays.map {|days| days["hospitalizedIncrease"]} %>
+            <li> Hospitalization Increase: <%= (@sevenDayHospitizationIncreaseArray.sum)/7 %>/day </li>
+        
+        <!-- currently in ICU average -->
+            <% @sevenDayICUArray = @sevenDays.map {|days| days["inIcuCurrently"]} %>
+            <li> Currently in ICU: <%= (@sevenDayICUArray.sum)/7 %>/day </li>
+        
+        <!-- currently on ventilator average  -->
+            <% @sevenDayVentilatorArray = @sevenDays.map {|days| days["onVentilatorCurrently"]} %>
+            <li> Currently on Ventilator: <%= (@sevenDayVentilatorArray.sum)/7 %>/day </li>
+        
+        <!-- deaths increase average -->
+            <% @sevenDayDeathArray = @sevenDays.map {|days| days["deathIncrease"]} %>
+            <li> Lives Lost: <%= (@sevenDayDeathArray.sum)/7 %>/day </li>  
+    </ul>
+    
 <h3>Total:</h3>
     <% @currentState = @arrayOfCurrentStates.find{|state| state["state"] == @location.abbreviation} %>
     <ul>

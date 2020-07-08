@@ -9,9 +9,9 @@ User.destroy_all
 Location.destroy_all 
 Favorite.destroy_all 
 
-# amy = User.create(username: "Amy", first_name: "Amy", last_name: "Smith" )
-# travy = User.create(username: "travisprol0", first_name: "Travis", last_name: "Prol" )
-# steve = User.create(username: "afrolambo", first_name: "Stephen", last_name: "Galvan" )
+amy = User.create(username: "Amy", first_name: "Amy", last_name: "Smith" )
+travy = User.create(username: "travisprol0", first_name: "Travis", last_name: "Prol" )
+steve = User.create(username: "afrolambo", first_name: "Stephen", last_name: "Galvan" )
 
 
  alabama = Location.create(state: "Alabama", abbreviation: "AL" )

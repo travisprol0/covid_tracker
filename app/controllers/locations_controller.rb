@@ -13,7 +13,7 @@ class LocationsController < ApplicationController
         @location = Location.find(params[:id])
         states_daily
         states_current
-        @arrayOfCurrentStates
+        states_info
     end 
 
     private

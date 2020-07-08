@@ -30,5 +30,5 @@
 
 
 
-
+<p><%=@location.state%> COVID Site: <a href="<%=@covidSite%>"</a></p>
 

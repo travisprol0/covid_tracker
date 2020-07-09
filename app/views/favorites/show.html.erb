@@ -89,7 +89,9 @@
     <% @dateData = @arrayOfStatesDaily.select{|state| state["state"] == @location.abbreviation} %>
     <% @totalDateInteger = @dateData.last["date"] %>
     <p></p>
-    <h5 class= "headers">Totals Starting on <%= Date.parse(@totalDateInteger.to_s).strftime %></h5>
+    <h5 class= "headers">Totals Starting on:
+    <br>
+    <%= Date.parse(@totalDateInteger.to_s).strftime %></h5>
     <% @currentState = @arrayOfCurrentStates.find{|state| state["state"] == @location.abbreviation} %>
 
     <ul>

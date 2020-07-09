@@ -80,7 +80,9 @@
     
 <div class="div3"> 
 <p></p>
-<h5 class= "headers">Totals Starting on <%= Date.parse(@arrayOfUSDaily.last["date"].to_s).strftime%>: </h5>
+<h5 class= "headers">Totals Starting on:
+<br>
+<%= Date.parse(@arrayOfUSDaily.last["date"].to_s).strftime%> </h5>
 
     <ul>
    

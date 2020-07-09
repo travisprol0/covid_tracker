@@ -1,0 +1,102 @@
+<h1><%= @location.state %></h1>
+
+
+        <!-- COVID site -->
+            <% @stateInfo = @arrayOfStatesInfo.find{|state| state["state"] == @location.abbreviation} %>
+            <% @covidSite = @stateInfo["covid19Site"]%>
+            <a href="<%= @covidSite%>" target="_blank"><%=@location.state%> COVID Site</a>
+
+    <br>
+        <!-- twitter -->
+            <% @twitter = @stateInfo["twitter"]%>
+            <% @twitter = @twitter[1..-1]%>
+            <a href="https://twitter.com/<%= @twitter %>" target="_blank"><%=@location.state%> COVID Twitter</a>
+            
+
+
+<h3>Today:</h3>
+    <% @todayState = @arrayOfStatesDaily.find{|state| state["state"] == @location.abbreviation} %>
+  
+    <ul>
+        <!-- date -->
+            <% @dateHash = @todayState.select{|stat| stat["date"]} %>
+            <li> Date: <%= @dateHash["date"] %> </li>
+        
+            
+        <!-- new cases -->
+            <% @newCasesHash = @todayState.select{|stat| stat["positiveIncrease"]} %>
+            <li> New Cases: <%= @newCasesHash["positiveIncrease"] %> </li>
+            
+        <!-- currently hospitalized -->
+            <% @hospitalizedCurrentlyHash = @todayState.select{|stat| stat["hospitalizedCurrently"]} %>
+            <li> Currently Hospitalized: <%= @hospitalizedCurrentlyHash["hospitalizedCurrently"] %> </li>
+        
+        <!-- hospitization increase -->
+            <% @hospitalizedIncreaseHash = @todayState.select{|stat| stat["hospitalizedIncrease"]} %>
+            <li> Hospitalization Increase: <%= @hospitalizedIncreaseHash["hospitalizedIncrease"] %> </li>
+        
+        <!-- currently in ICU -->
+            <% @inIcuCurrentlyHash = @todayState.select{|stat| stat["inIcuCurrently"]} %>
+            <li> Currently in ICU: <%= @inIcuCurrentlyHash["inIcuCurrently"] %> </li>
+        
+        <!-- currently on ventilator -->
+            <% @onVentilatorCurrentlyHash = @todayState.select{|stat| stat["onVentilatorCurrently"]} %>
+            <li> Currently on Ventilator: <%= @onVentilatorCurrentlyHash["onVentilatorCurrently"] %> </li>
+        
+        <!-- deaths increase -->
+            <% @deathIncreaseHash = @todayState.select{|stat| stat["deathIncrease"]} %>
+            <li> Lives Lost: <%= @deathIncreaseHash["deathIncrease"] %> </li>
+    </ul>
+
+<h3>7 Day Average:</h3>
+    <% @staeDailyData = @arrayOfStatesDaily.select{|state| state["state"] == @location.abbreviation} %>
+    <% @sevenDays = @staeDailyData.take(7) %>
+
+    <ul>        
+            
+        <!-- new cases average -->
+            <% @positiveArray = @sevenDays.map {|days| days["positiveIncrease"]} %>
+            <li> New Cases: <%= (@positiveArray.sum)/7 %>/day </li>
+            
+        <!-- currently hospitalized average -->
+            <% @sevenDayHospitizationArray = @sevenDays.map {|days| days["hospitalizedCurrently"]} %>
+            <li> Currently Hospitalized: <%= (@sevenDayHospitizationArray.sum)/7 %>/day </li>
+        
+        <!-- hospitization increase average -->
+            <% @sevenDayHospitizationIncreaseArray = @sevenDays.map {|days| days["hospitalizedIncrease"]} %>
+            <li> Hospitalization Increase: <%= (@sevenDayHospitizationIncreaseArray.sum)/7 %>/day </li>
+        
+        
+        <!-- deaths increase average -->
+            <% @sevenDayDeathArray = @sevenDays.map {|days| days["deathIncrease"]} %>
+            <li> Lives Lost: <%= (@sevenDayDeathArray.sum)/7 %>/day </li>  
+    </ul>
+
+    <% @dateData = @arrayOfStatesDaily.select{|state| state["state"] == @location.abbreviation} %>
+    
+<h3>Totals Starting on <%= @dateData.last["date"]%>: </h3>
+    <% @currentState = @arrayOfCurrentStates.find{|state| state["state"] == @location.abbreviation} %>
+
+    <ul>
+   
+        <!-- total cases -->
+                <% @CasesHash = @currentState.select{|stat| stat["positive"]} %>
+                <li> Total Cases: <%= @CasesHash["positive"] %> </li>
+        
+        <!-- total hospitizations -->
+                <% @hospitalizedCumulativeHash = @currentState.select{|state| state["hospitalizedCumulative"]} %>
+                <li> Total Hospitizations: <%= @hospitalizedCumulativeHash["hospitalizedCumulative"] %> </li>
+        
+        <!-- total ICU -->
+                <% @inIcuCumulativeHash = @currentState.select{|stat| stat["inIcuCumulative"]} %>
+                <li> Total ICU Patients: <%= hi = @inIcuCumulativeHash["inIcuCumulative"] %> </li>
+        
+        <!-- deaths -->
+                <% @deathHash = @currentState.select{|stat| stat["death"]} %>
+                <li> Total Deaths: <%= hi = @deathHash["death"] %> </li>
+
+    </ul>
+
+<br>
+<%= link_to 'Back', url_for(:back) %> <br>
+<%= button_to "Delete Favorite", {:controller => :favorites, :action => 'destroy', :id => @favorite.id }, :method => :delete %> 

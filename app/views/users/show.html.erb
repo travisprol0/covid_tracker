@@ -3,7 +3,7 @@
 <% @user.favorites.each do |favorite|%>
     <ul class="list">
         <li>
-            <%= link_to favorite.location.state, location_path(favorite.location.id) %>
+            <%= link_to favorite.location.state, favorite_path(favorite.id) %>
         </li>
     </ul>
 <% end %>

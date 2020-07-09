@@ -28,7 +28,7 @@
         <!-- new cases -->
             <% @newCasesHash = @todayState.select{|stat| stat["positiveIncrease"]} %>
                 <% @todayIncrease = @newCasesHash["positiveIncrease"] %>
-            <li> New Cases: <%=  %> </li>
+            <li> New Cases: <%= number_with_delimiter(@todayIncrease) %> </li>
             
         <!-- currently hospitalized -->
             <% @hospitalizedCurrentlyHash = @todayState.select{|stat| stat["hospitalizedCurrently"]} %>

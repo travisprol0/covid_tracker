@@ -14,32 +14,32 @@
     <ul>
         <!-- date -->
              <% @date = @arrayOfUSDaily[0]["date"]%>
-            <li> Date: <%= @date %> </li>
+            <li> Date: <%= Date.parse(@date.to_s).strftime %> </li>
 
                
         <!-- new cases -->
              <% @case= @arrayOfUSCurrent[0]["positiveIncrease"]%>
-            <li> New Cases: <%= @case %> </li>
+            <li> New Cases: <%= number_with_delimiter(@case) %> </li>
             
         <!-- currently hospitalized -->
             <% @hospitalizedCurrently = @arrayOfUSCurrent[0]["hospitalizedCurrently"]%>
-            <li> Currently Hospitalized: <%= @hospitalizedCurrently %> </li>
+            <li> Currently Hospitalized: <%= number_with_delimiter(@hospitalizedCurrently) %> </li>
             
         <!-- hospitization increase -->
             <% @hospitalizedIncreaseHash = @arrayOfUSCurrent[0]["hospitalizedIncrease"] %>
-            <li> Hospitalization Increase: <%= @hospitalizedIncreaseHash %> </li>
+            <li> Hospitalization Increase: <%= number_with_delimiter(@hospitalizedIncreaseHash) %> </li>
         
         <!-- currently in ICU -->
             <% @inIcuCurrently = @arrayOfUSCurrent[0]["inIcuCurrently"] %>
-            <li> Currently in ICU: <%= @inIcuCurrently %> </li>
+            <li> Currently in ICU: <%= number_with_delimiter(@inIcuCurrently) %> </li>
         
         <!-- currently on ventilator -->
             <% @onVentilatorCurrently = @arrayOfUSCurrent[0]["onVentilatorCurrently"] %>
-            <li> Currently on Ventilator: <%= @onVentilatorCurrently %> </li>
+            <li> Currently on Ventilator: <%= number_with_delimiter(@onVentilatorCurrently) %> </li>
         
         <!-- deaths increase -->
             <% @deathIncrease = @arrayOfUSCurrent[0]["deathIncrease"] %>
-            <li> Lives Lost: <%= @deathIncrease %> </li>
+            <li> Lives Lost: <%= number_with_delimiter(@deathIncrease) %> </li>
     </ul>
 
 <h3>7 Day Average:</h3>
@@ -50,41 +50,41 @@
             
         <!-- new cases average -->
             <% @positiveArray = @sevenDays.map {|days| days["positiveIncrease"]} %>
-            <li> New Cases: <%= (@positiveArray.sum)/7 %>/day </li>
+            <li> New Cases: <%= number_with_delimiter((@positiveArray.sum)/7) %>/day </li>
             
         <!-- currently hospitalized average -->
             <% @sevenDayHospitizationArray = @sevenDays.map {|days| days["hospitalizedCurrently"]} %>
-            <li> Currently Hospitalized: <%= (@sevenDayHospitizationArray.sum)/7 %>/day </li>
+            <li> Currently Hospitalized: <%= number_with_delimiter((@sevenDayHospitizationArray.sum)/7) %>/day </li>
         
         <!-- hospitization increase average -->
             <% @sevenDayHospitizationIncreaseArray = @sevenDays.map {|days| days["hospitalizedIncrease"]} %>
-            <li> Hospitalization Increase: <%= (@sevenDayHospitizationIncreaseArray.sum)/7 %>/day </li>
+            <li> Hospitalization Increase: <%= number_with_delimiter((@sevenDayHospitizationIncreaseArray.sum)/7) %>/day </li>
         
         
         <!-- deaths increase average -->
             <% @sevenDayDeathArray = @sevenDays.map {|days| days["deathIncrease"]} %>
-            <li> Lives Lost: <%= (@sevenDayDeathArray.sum)/7 %>/day </li>  
+            <li> Lives Lost: <%= number_with_delimiter((@sevenDayDeathArray.sum)/7) %>/day </li>  
     </ul>
     
-<h3>Totals Starting on <%= @arrayOfUSDaily.last["date"]%>: </h3>
+<h3>Totals Starting on <%= Date.parse(@arrayOfUSDaily.last["date"].to_s).strftime%>: </h3>
 
     <ul>
    
         <!-- total cases -->
                 <% @CasesHash = @arrayOfUSCurrent[0]["positive"] %>
-                <li> Total Cases: <%= @CasesHash %> </li>
+                <li> Total Cases: <%= number_with_delimiter(@CasesHash) %> </li>
         
         <!-- total hospitizations -->
                 <% @hospitalizedCumulative = @arrayOfUSCurrent[0]["hospitalizedCumulative"] %>
-                <li> Total Hospitizations: <%= @hospitalizedCumulative %> </li>
+                <li> Total Hospitizations: <%= number_with_delimiter(@hospitalizedCumulative) %> </li>
         
         <!-- total ICU -->
                 <% @inIcuCumulative = @arrayOfUSCurrent[0]["inIcuCumulative"] %>
-                <li> Total ICU Patients: <%= hi = @inIcuCumulative %> </li>
+                <li> Total ICU Patients: <%= number_with_delimiter(@inIcuCumulative) %> </li>
         
         <!-- deaths -->
                 <% @deathHash = @arrayOfUSCurrent[0]["death"] %>
-                <li> Total Deaths: <%= hi = @deathHash %> </li>
+                <li> Total Deaths: <%= number_with_delimiter(@deathHash) %> </li>
         
     
          

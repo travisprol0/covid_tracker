@@ -74,3 +74,13 @@ Favorite.destroy_all
 
 
 travis = User.create(name: "Travis Prol")
+stephen = User.create(name: "Stephen Galvan")
+
+
+Favorite.create(user_id: travis.id, location_id: new_jersey.id)
+Favorite.create(user_id: travis.id, location_id: new_york.id)
+Favorite.create(user_id: travis.id, location_id: michigan.id)
+Favorite.create(user_id: travis.id, location_id: vermont.id)
+Favorite.create(user_id: stephen.id, location_id: california.id)
+Favorite.create(user_id: stephen.id, location_id: maine.id)
+Favorite.create(user_id: stephen.id, location_id: new_york.id)

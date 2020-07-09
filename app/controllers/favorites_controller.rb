@@ -11,17 +11,26 @@ class FavoritesController < ApplicationController
         redirect_to user_path(favorite.user_id)
     end
 
+    def destroy_multiple
+
+        Favorite.destroy(params[:favorites])
+      
+        respond_to do |format|
+          format.html { redirect_to users_path }
+          format.json { head :no_content }
+        end
+    end
+
+    def destroy
+        @favorite = Favorite.find(params[:id])
+        @favorite.destroy
+        redirect_to users_path
+      end
+
     private
 
     def favorite_params
         params.require(:favorite).permit(:user_id, :location_id)
     end
-
-    def destroy_multiple
-        favorite.location.state.destroy(params[:favorite_ids])
-        respond_to do |format|
-          format.html { redirect_to favorite.user.id }
-        #   format.json { head :no_content }
-        end
-    end
+    
 end

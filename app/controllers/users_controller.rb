@@ -25,13 +25,11 @@ class UsersController < ApplicationController
         end 
     end
 
-    def destroy_multiple
-        favorite.location.state.destroy(params[:favorite_ids])
-        respond_to do |format|
-          format.html { redirect_to favorite.user.id }
-          format.json { head :no_content }
-        end
-    end
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        redirect_to users_path
+      end
 
 
     private

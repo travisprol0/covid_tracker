@@ -1,29 +1,14 @@
 <h1><%= @user.to_s %></h1>
-
-<%= form_tag destroy_multiple_favorites_url, method: :delete do %>
-
-
-
 <% @user.favorites.each do |favorite| %>
-  
-    <p><%= link_to favorite.location.state, location_path(favorite.location.id) %></p>
+    <div class = "favorite-container">
 
-    <p><%= check_box_tag "[]", favorite.id, false, class: 'selectable' %></p>
-  
-<% end %>
-    
+      State: <%= link_to favorite.location.state, location_path(favorite.location.id) %>
 
-
-<%= submit_tag "Delete selected", :class => 'btn btn-primary btn-xs' %>
-<% end %>
-
-------------^ New Stuff ^-----------
-<% @user.favorites.each do |favorite|%>
-    <ul>
-        <li>
-            <%= link_to favorite.location.state, location_path(favorite.location.id) %>
-        </li>
-    </ul>
-<% end %>
+      <%= button_to "View", locations_path, :method => :get%>
+      <%= button_to "Remove", location_path(favorite),
+      :method => :delete,
+      
+      %>
+    </div>
 
 <%= link_to "Add Favorite", new_favorite_path%>

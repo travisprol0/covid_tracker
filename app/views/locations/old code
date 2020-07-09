@@ -34,3 +34,27 @@
 
 (favorite.location.id)
 
+<% @user.favorites.each do |favorite|%>
+    <ul>
+        <li>
+            <%= link_to favorite.location.state, location_path(favorite.location.id) %>
+        </li>
+    </ul>
+<% end %>
+
+
+
+
+<%= form_tag destroy_multiple_favorites_path, method: :delete do %>
+<% @user.favorites.each do |favorite| %>
+    <div>
+    <%= link_to favorite.location.state, location_path(favorite.location.id) %>
+    <%= check_box_tag "[]", favorite.id, false, class: 'selectable' %>
+    </div>
+<% end %>
+    <br>
+
+
+<%= submit_tag "Delete selected", :class => 'btn btn-primary btn-xs' %>
+<% end %>
+

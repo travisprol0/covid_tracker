@@ -1,7 +1,7 @@
 <% require 'date' %>
 <h1 class = "Welcome-message"><%= @location.state %></h1>
 
-    <div class = "link"
+    <div class = "link">
         <!-- COVID site -->
             <% @stateInfo = @arrayOfStatesInfo.find{|state| state["state"] == @location.abbreviation} %>
             <% @covidSite = @stateInfo["covid19Site"]%>

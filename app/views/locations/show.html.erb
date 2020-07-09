@@ -1,7 +1,7 @@
 <% require 'date' %>
-<h1><%= @location.state %></h1>
+<h1 class = "Welcome-message"><%= @location.state %></h1>
 
-
+    <div class = "link"
         <!-- COVID site -->
             <% @stateInfo = @arrayOfStatesInfo.find{|state| state["state"] == @location.abbreviation} %>
             <% @covidSite = @stateInfo["covid19Site"]%>
@@ -12,10 +12,12 @@
             <% @twitter = @stateInfo["twitter"]%>
             <% @twitter = @twitter[1..-1]%>
             <a href="https://twitter.com/<%= @twitter %>" target="_blank"><%=@location.state%> COVID Twitter</a>
-            
-            
+    </div>
+<div class="US_stats">           
 
-<h3>Today:</h3>
+<div class="div1">
+<p></p>
+<h5 class= "headers">Today:</h5>
     <% @todayState = @arrayOfStatesDaily.find{|state| state["state"] == @location.abbreviation} %>
   
     <ul>
@@ -50,8 +52,10 @@
             <% @deathIncreaseHash = @todayState.select{|stat| stat["deathIncrease"]} %>
             <li> Lives Lost: <%= number_with_delimiter(@deathIncreaseHash["deathIncrease"]) %> </li>
     </ul>
-
-<h3>7 Day Average:</h3>
+    </div>
+    <div class="div2">
+    <p></p>
+<h5 class = "headers">7 Day Average:</h5>
     <% @staeDailyData = @arrayOfStatesDaily.select{|state| state["state"] == @location.abbreviation} %>
     <% @sevenDays = @staeDailyData.take(7) %>
 
@@ -76,11 +80,13 @@
     </ul>
 
 
- 
+    </div>
 
     <% @dateData = @arrayOfStatesDaily.select{|state| state["state"] == @location.abbreviation} %>
     <% @totalDateInteger = @dateData.last["date"] %>
-<h3>Totals Starting on <%= Date.parse(@totalDateInteger.to_s).strftime %>: </h3>
+    <div class="div3">
+    <p></p>
+<h5 class= "headers">Totals Starting on <%= Date.parse(@totalDateInteger.to_s).strftime %>: </h5>
     <% @currentState = @arrayOfCurrentStates.find{|state| state["state"] == @location.abbreviation} %>
 
     <ul>
@@ -102,7 +108,8 @@
                 <li> Total Deaths: <%= number_with_delimiter(@deathHash["death"]) %> </li>
 
     </ul>
-
+    </div>
+</div>
 <br>
 <%= link_to 'Back', url_for(:back) %> <br>
 <%= link_to "View All States", locations_path%>

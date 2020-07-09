@@ -55,3 +55,5 @@ gem 'excon'
 
 gem 'bootstrap', '~> 4.5.0' #for bootstrap 
 gem 'jquery-rails' #bootstrap requires this jQuery
+
+gem 'select_all-rails'

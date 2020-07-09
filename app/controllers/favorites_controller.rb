@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
 
     def show
         @favorite = Favorite.find(params[:id])
-        @location = Location.find(params[:id])
+        @location = @favorite.location
         @favorites = Favorite.all
         states_daily
         states_current

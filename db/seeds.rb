@@ -73,11 +73,3 @@ steve = User.create(username: "afrolambo", first_name: "Stephen", last_name: "Ga
 
 
 
-
-one = Favorite.create(user_id: amy.id , location_id: new_jersey.id)
-two = Favorite.create(user_id: travy.id, location_id: new_york.id)
-three = Favorite.create(user_id: amy.id , location_id: new_york.id)
-four = Favorite.create(user_id: travy.id, location_id: new_jersey.id)
-
-
-

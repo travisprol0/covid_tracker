@@ -1,4 +1,4 @@
-<h1> Users Index Page </h1>
+<h1 class = "Welcome-message"> Users Index Page </h1>
 <% @users.each do |user| %>
 <ul>
 <li><%= link_to user.name, user_path(user.id) %></li>

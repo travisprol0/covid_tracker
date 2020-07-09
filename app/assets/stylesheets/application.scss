@@ -50,3 +50,28 @@ body {
         margin: 20px;
         background-color: lightsteelblue;
     }
+
+    .error {
+        border : red;
+        background-color: mistyrose;
+    }
+
+    .outershell {
+        border: 2px solid #011638;
+        background-color: #D9E5D6;
+        padding: 80px 0px;
+    }
+
+    .innershell { 
+        border: 2px solid #011638;
+        background-color: #749BAA;
+        margin: 0px 90px;
+        padding: 22px 100px 25px; 
+
+    }
+
+    .form_title {
+        text-align: center;
+    }
+
+

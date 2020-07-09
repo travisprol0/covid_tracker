@@ -1,4 +1,5 @@
 
+<div class="index_container">
 <h1 class = "Welcome-message"><%= @favorite.location.state%></h1>
 
     <div class = "link">
@@ -87,6 +88,7 @@
     <div class="div3">
     <% @dateData = @arrayOfStatesDaily.select{|state| state["state"] == @location.abbreviation} %>
     <% @totalDateInteger = @dateData.last["date"] %>
+    <p></p>
     <h5 class= "headers">Totals Starting on <%= Date.parse(@totalDateInteger.to_s).strftime %></h5>
     <% @currentState = @arrayOfCurrentStates.find{|state| state["state"] == @location.abbreviation} %>
 
@@ -112,5 +114,6 @@
     </div>
 </div>
 <br>
-<%= link_to 'Back', url_for(:back) %> <br>
+<span class="bb"><%= link_to 'Back', url_for(:back) %></span> <br>
 <%= button_to "Delete Favorite", {:controller => :favorites, :action => 'destroy', :id => @favorite.id }, :method => :delete %> 
+</div>

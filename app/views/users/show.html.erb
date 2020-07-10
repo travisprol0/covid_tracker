@@ -1,3 +1,4 @@
+<div class="index_container">
 <h1 class = "Welcome-message"><%= @user.name %></h1>
 <h5>Favorites:</h5>
 <% @user.favorites.each do |favorite|%>
@@ -8,8 +9,9 @@
     </ul>
 <% end %>
 
-<%= link_to "Add Favorite", new_favorite_path%>
+<span class="addbutton"><%= link_to "Add Favorite", new_favorite_path%></span>
 <br>
-<%= link_to "Back to Users", users_path%>
+<span class="bb"><%= link_to "Back to Users", users_path%></span>
 <br><br>
 <%= button_to "Delete User", {:controller => :users, :action => 'destroy', :id => @user.id }, :method => :delete %> 
+</div>

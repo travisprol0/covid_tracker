@@ -1,8 +1,10 @@
-<h1 class = "Welcome-message"> Users Index Page </h1>
+<div class="index_container">
+<h1 class="Welcome-message"> Users Index Page </h1>
 <% @users.each do |user| %>
 <ul>
 <li><%= link_to user.name, user_path(user.id) %></li>
 </ul>
 <% end %>
 <br>
-<%= link_to "Create User", new_user_path%>
+<span class="addbutton"><%= link_to "Create User", new_user_path%></span>
+</div>

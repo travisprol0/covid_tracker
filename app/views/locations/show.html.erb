@@ -108,7 +108,7 @@
         
         <!-- deaths -->
                 <% @deathHash = @currentState.select{|stat| stat["death"]} %>
-                <li> Total Deaths: <%= number_with_delimiter(@deathHash["death"]) %> </li>
+                <li> Lives Lost: <%= number_with_delimiter(@deathHash["death"]) %> </li>
 
     </ul>
     </div>

@@ -6,9 +6,6 @@ class LocationsController < ApplicationController
     
     def index 
         @locations = Location.all
-        # location = states_current[:state]
-        # states_current
-        # @arrayOfCurrentStates
     end 
 
     def show 

@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+NOTE: The API data has been reformatted and the individual state data does not display. Update coming soon.
 
-Things you may want to cover:
+Rails Version: 6.0.3.2
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To Run:
+* cd to directory in terminal
+* run "bundle install"
+* run "rails db:migrate"
+* run "rails db:seed"
+* run "rails s"
+* navigate to "http://localhost:3000/" in your browser

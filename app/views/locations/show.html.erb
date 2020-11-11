@@ -90,6 +90,7 @@
     <p></p>
 <h5 class= "headers">Totals Starting on:<br> 
 <%= Date.parse(@totalDateInteger.to_s).strftime %> </h5>
+    <%= debug @currentState%>
     <% @currentState = @arrayOfCurrentStates.find{|state| state["state"] == @location.abbreviation} %>
 
     <ul>
